@@ -71,6 +71,8 @@ app.directive('ngTable', ['$compile', '$q', '$parse',
                     columns.push({
                         id: i++,
                         title: parsedTitle,
+                        placeholder: el.attr('filter-placeholder'),
+                        headerclazz: parsedAttribute('headerclazz', false),
                         sortable: parsedAttribute('sortable', false),
                         'class': el.attr('x-data-header-class') || el.attr('data-header-class') || el.attr('header-class'),
                         filter: filter,
@@ -96,6 +98,10 @@ app.directive('ngTable', ['$compile', '$q', '$parse',
                         scope.paramsModel = $parse(attrs.ngTable);
                         scope.params = params;
                     }), true);
+                    scope.parseExpression = function (text) {
+                        var expressionValue = angular.isDefined(text) ? $parse(text)(scope) : '';
+                        return angular.isDefined(expressionValue) ? expressionValue : text;
+                    };
                     scope.parse = function (text) {
                         return angular.isDefined(text) ? text(scope) : '';
                     };
