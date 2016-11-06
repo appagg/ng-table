@@ -21,7 +21,7 @@ For work in IE < 9 need jQuery, just add:
 * [Export to CSV](https://github.com/esvit/ng-table-export)
 
 ## Updates
-
+### remora-mod branch from v0.3.3
 ### v0.3.2 (master)
 - add pagination directive ngTablePagination [(see usage)](https://github.com/esvit/ng-table/blob/master/examples/demo28.html)
 - rename filter.name to filter.$$name according to issue #196
